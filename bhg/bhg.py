@@ -10,18 +10,14 @@ import requests as rq
 from fire import Fire,decorators
 from PIL import Image, ImageDraw, ImageFont
 from PIL.ImageGrab import grabclipboard
+from json import load
 
 #global const
 #定义默认字体大小范围。文字最小不应小于font_min，最大不应大于font_max。
 font_min = 14
 font_max = 72
+
 working_dir=dirname(__file__)
-#语种-字体对应表
-font_dict = {
-    'zh': working_dir+os.sep+'font' + os.sep + 'OPPOSans-M.ttf',
-    'jp': working_dir+os.sep+'font' + os.sep + 'MSMINCHO.TTF',
-    'en': working_dir+os.sep+'font' + os.sep + 'OPPOSans-M.ttf'
-    }
 #由命令行入口进入
 CLI_Entrance = False
 #分隔符
@@ -36,8 +32,18 @@ error_code={
     6:"缺少图片",
     7:"图片获取失败",
     8:"剪贴板中不包含图片",
-    9:"输入的背景色格式不正确",
+    9: "输入的背景色格式不正确",
+    10:"语种-字体对应表文件fonts.json有错误"
 }
+#语种-字体对应表
+font_dict={}
+try:
+    with open("fonts.json", "r") as f:
+        js = load(f)
+    for i in js.keys():
+        font_dict[i] = working_dir + os.sep + 'font' + os.sep + js[i]
+except:
+    stderr.write(error_code[10])
 
 #aux functions
 def CLParser(cl: str):

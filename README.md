@@ -18,7 +18,7 @@
 
 比如：
 
-<img src="bhg/example/example_raw.png" alt="原图" style="zoom: 33%;" />
+<img src="./bhg/example/example_raw.png" alt="原图" style="zoom: 33%;" />
 
 想在这样的一张图片底下添加些文字，使用：
 
@@ -28,7 +28,7 @@
 
 就可以得到：
 
-<img src="E:/Python/bhg_package/bhg/example/失去梦想.png" alt="失去梦想" style="zoom:33%;" />
+<img src="./bhg/example/失去梦想.png" alt="失去梦想" style="zoom:33%;" />
 
 
 
@@ -104,13 +104,13 @@
 
 ### 作为包引入
 
-使用`from bhg import BHG`导入执行类`BHG`，再定义一个实例(如`painter=BHG()`)，即可在其他Python代码里面接入黑色幽默生成器。
+使用`from bhg import BHG`导入执行类`BHG`，再定义一个实例(如`painter=BHG()`)，即可在其他Python代码里面接入bhg。
 
 - `BHG.source(s:str)`：即`--source s`，导入原图。
 
-- `BHG.text(s='',font_size=0,lang='zh')`：加入文字s，其字号为`font_size`，语种为`lang`。
+- `BHG.text(s='',font_size=0,lang='zh')`：加入文字`s`，其字号为`font_size`，语种为`lang`。
 
-  s可以指定为字符串列表，这样可以一次性添加多行文字，类似地，`font_size`和`lang`也可以为列表，它们的值将依次定义对应行文字的字号和语种。
+  `s`可以指定为字符串列表，这样可以一次性添加多行文字，类似地，`font_size`和`lang`也可以为列表，它们的值将依次定义对应行文字的字号和语种。
 
 - `BHG.savepng(flag=True)`：即`--savepng`。如果之前已经创建过图片，不想保存图片，可以使用`savepng(False)`来设定为显示接下来生成的图片。
 
@@ -146,4 +146,4 @@
 
 ### ...以及
 
-发挥你的创造力，让你的朋友们噗嗤一声笑出来吧！
+发挥你的创造力吧！

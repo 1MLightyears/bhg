@@ -1,8 +1,7 @@
 *.swp
 *.sh
-*.png
-*.jpg
 
 __pycache__/
 *.egg-info/
+dist/
 build/
